@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+void incrementby1(int &k){//call by referece as & is used..
+  k=k*100;
+ // here k is pointing to n as no copy is created.
+}
+
+int main() {
+//   int n=5; //normal interger
+// //k,j,l are reference  vaiables
+//   int &K =n;//nick name to n
+//    int &j =n;//nickname to n
+//   int &l =n;//nickname to n
+
+//  cout << n<<endl;
+//   cout << K<<endl;
+//   cout << j<<endl;
+//   cout << l<<endl;
+// // we cannot do this as 6 is constact we use it as reference variable or alias of a variable..
+//  //  int &t =6;
+ // int n;
+ //  cin>>n;
+ // n= incrementby1(n);
+ //  cout<<"n is: "<<n<<endl;
+
+   int n;
+    cin>>n;
+ incrementby1(n);
+    cout<<"n is: "<<n<<endl;
+
+  
+}
