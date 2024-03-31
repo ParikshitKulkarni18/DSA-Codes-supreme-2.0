@@ -1,0 +1,106 @@
+#include<iostream>
+#include<vector>
+
+
+using namespace std;
+
+
+ int xorarr(vector<int> arr){
+   int ans=0;
+   for(int i=0;i<arr.size();i++){
+     ans= ans^ arr[i];
+   }
+   
+   return ans;
+ }
+
+
+
+int main(){
+//  // vector create 
+//   vector<int> arr;
+//   // 
+//  // int ans = (sizeof(arr)/sizeof(int)); 
+//  //  cout<<ans<<endl;
+//   cout<<arr.size()<<endl; 
+//   cout<<arr.capacity()<<endl;// stores the total //element currently present in the vector..
+//   //insert
+//   arr.push_back(5);
+//   arr.push_back(10);
+// //print
+//   for (int i=0;i<arr.size();i++){
+//     cout<<arr[i]<<" "<<endl;
+//   }
+  
+//   // remove 
+//   arr.pop_back();
+//    for (int i=0;i<arr.size();i++){
+//      cout<<arr[i]<<" "<<endl;
+//    }
+ 
+//   //explicitly doing the array
+//   int n;
+//   cout<<"Enter the value of n"<<endl;
+//   cin>>n;
+//   vector<int>brr(n,-5);
+//   cout<<"Size of brr: "<<brr.size()<<endl;
+//   cout<<"capacity of brr: "<<brr.capacity()<<endl;
+
+//   for(int i=0;i<brr.size();i++){
+//     cout<<brr[i]<<" ";
+    
+//   }
+//   cout<< endl;
+  
+//   vector<int>crr{10,20,30,40,50};
+//    for (int i=0;i<crr.size();i++){
+//      cout<<crr[i]<<endl;
+//    }
+  
+//   cout<<"IS CRR EMpty: "<<crr.empty();
+
+  // unique element Q:
+
+ //  int n;
+ //  cout<<"enter the size"<<endl;
+ //  cin>>n;
+
+ //  vector<int>arr(n);
+ //  cout<<"Enter the element"<<endl;
+ //  for(int i=0;i<arr.size();i++){
+ 
+ //    cin>>arr[i];
+ //  }
+
+ //  int uniqueElement = xorarr(arr);
+  
+ // cout<<"Ans is: "<< uniqueElement<<endl;
+
+//  union of 2 array:
+  int arr[]={2,3,4,5,6};
+  int sizea=5;
+  int brr[]={1,5,8,9,10,11};
+   int sizeb = 6;
+  vector<int>ans;
+  //push all element of vector arr
+  for(int i=0;i<sizea;i++)
+  {
+    ans.push_back(arr[i]);
+  }
+  // push all eleemt for brr
+  for(int i=0;i<sizeb;i++){
+    ans.push_back(brr[i]);
+  }
+// print ans
+  for(int i=0;i<ans.size();i++){
+    cout<<ans[i]<<" ";
+  }
+  cout<<endl;
+
+
+
+
+
+  
+  return 0;
+}
