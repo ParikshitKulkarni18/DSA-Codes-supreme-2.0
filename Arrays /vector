@@ -80,6 +80,41 @@ int main () {
   vector<int> arr;
   arr.push_back(10);
 
+// vector<int> arr (5,-1);
+
+  // vector<vector <int> > brr(1,vector<int>(15,-5));
+
+
+  // for (int i=0;i<brr.size();i++){
+  //   for(int j=0;j<brr[i].size();j++){
+  //      cout << brr[i][j]<<" ";
+  //   }
+  //   cout<< endl;
+  // }
+
+
+
+  // // jagged Array
+  // vector<vector<int> > arr;
+
+  // vector<int> vec1(10,0);
+  //  vector<int> vec2(5,2);
+  //  vector<int> vec3(3,8);
+  //  vector<int> vec4(1,10);
+  //  vector<int> vec5(8,-5);
+
+  // arr.push_back(vec1);
+  // arr.push_back(vec2);
+  // arr.push_back(vec3);
+  // arr.push_back(vec4);
+  // arr.push_back(vec5);
+  
+  // for (int i=0;i<arr.size();i++){
+  //     for(int j=0;j<arr[i].size();j++){
+  //        cout << arr[i][j]<<" ";
+  //     }
+  //     cout<< endl;
+  //   }
 
 
   
