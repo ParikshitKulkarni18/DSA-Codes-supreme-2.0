@@ -1,5 +1,6 @@
 # include<iostream>
 #include<limits.h>
+
 using namespace std;
 
 void printArrayrow(int arr[][4],int row,int col){
@@ -95,6 +96,22 @@ void diawisesum(int arr[][4],int row){
     cout<< sum<<endl;
   cout<<" over";
   }
+// upper traingle code
+void transpose (int arr[][4],int row,int col){
+  for (int i=0;i<row;i++){
+    for (int j=i+1;j<col;j++){
+      swap (arr[i][j], arr[j][i]);
+    }
+  }
+}
+// lower triangle code
+void transposelower (int arr[][4],int row,int col){
+  for (int i=0;i<row;i++){
+    for (int j=0;j<i;j++){
+      swap (arr[i][j], arr[j][i]);
+    }
+  }
+}
 
 int main(){
  // create 2d array 
@@ -150,7 +167,7 @@ int main(){
 
     };
  int row =4;
- // int col = 4;
+ int col = 4;
   // int target = 1010;
   // cout<<"found or not:"<<" "<<findtarget(arr,row,col,target);
 
@@ -160,7 +177,28 @@ int main(){
  // rowisesum(arr,row,col);
   
   //colwisesum(arr, row, col);
-   diawisesum(arr,row);
-  return 0;
+ //  diawisesum(arr,row);
+  cout<< "Printing before the transpose"<<" "<<endl;
+   printArrayrow(arr,row,col);
+ 
+ 
+  cout<< "Doing transpose "<<endl;
   
-} 
+  transpose(arr,row,col);
+
+   cout<< "Printing after the transpose"<<" "<<endl;
+  printArrayrow(arr,row,col);
+  return 0;
+  // cout<< "Printing before the transpose"<<" "<<endl;
+  //  printArrayrow(arr,row,col);
+
+
+  // cout<< "Doing transpose "<<endl;
+
+  // transposelower(arr,row,col);
+
+  //  cout<< "Printing after the transpose"<<" "<<endl;
+  // printArrayrow(arr,row,col);
+  // return 0;
+  
+}  
