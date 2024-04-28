@@ -29,6 +29,7 @@ int binarySearch(int arr[],int n,int target){
   //if target is not present 
     return -1;
 }
+// finding the first occurence 
   int findfirstOccurence(int arr[],int n,int target) {
     int s=0;
     int e=n-1;
@@ -57,7 +58,8 @@ int binarySearch(int arr[],int n,int target){
     }
     return ans+1;
   }
-
+ // find the last occurance 
+// find and move right
 int findlastOccurence(int arr[],int n,int target) {
   int s=0;
   int e=n-1;
