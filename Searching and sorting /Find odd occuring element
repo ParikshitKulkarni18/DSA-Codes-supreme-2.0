@@ -1,0 +1,55 @@
+# include <iostream>
+using namespace std;
+
+
+int findOddOccurence(int arr[],int n){
+  int s=0;
+  int e= n-1;
+    int mid = s+(e-s)/2;
+
+  while(s<=e){
+    // single element ka case
+    if (s==e){
+      return s;
+      
+    }
+      // check for mid
+    else if (mid &1){ // mid &1 = true -> odd number fastest method to check
+        if ( mid-1 >=0  && arr[mid-1]== arr[mid]){
+          // right me jao
+          s = mid +1;
+          
+        }
+       else {
+         // left me jao
+         e = mid -1;
+         
+       }
+    }
+    else {
+      // even number ka case 
+       if ( mid +1 < n && arr[mid ]== arr[mid +1]){
+         // right me jao 
+         s = mid+2;
+       }
+      else {
+        //ya ha to right part par khada huu
+        // ya phir  answer ke upar (mid) par kada huuu
+        // e = mid -1 se answer lost hoga so e  = mid karo
+        e = mid;
+      }
+    }
+    mid = s+(e-s)/2;
+  }
+   return -1;
+}
+
+  int main(){
+  int arr[] ={10,10,30,30,70,70,10};
+  int n=7;
+
+    int ansIndex = findOddOccurence(arr,n);
+
+    cout<< " final Answer is : "<< arr[ansIndex]<< endl;
+
+}
