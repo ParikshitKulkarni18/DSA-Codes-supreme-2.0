@@ -1,0 +1,46 @@
+# include <iostream>
+using namespace std;
+
+
+
+int getQuentient (int divisor , int divident){
+  int s=0;
+  int e = divident ;
+  int mid = s + (e-s)/2;
+  int ans =-1;
+ while(s <= e){
+   if (mid * divisor ==  divident ){
+      return mid;
+   }
+   else if (mid * divisor < divident ){
+     // store answer
+      ans = mid;
+        // right jao 
+     s = mid+1;
+     
+   }
+   else {
+     // left jao
+     e = mid -1;
+   }
+   mid = s + (e-s)/2;
+ }
+   return  ans;
+}
+int main(){
+   int divisor = -7;
+  int divident = 29;
+// int n =-10;
+  // absolute is used to get only+ ve value
+  //cout<< abs(n)<< endl;
+  int ans = getQuentient(abs(divisor), abs(divident));
+
+
+
+  // now logic to handle -ve number 
+  if((divisor >0&& divident <0) ||(divisor <0&& divident >0)){
+    ans = 0-ans;
+  }
+  cout<< " final answer is : " << ans << endl;
+ 
+}
