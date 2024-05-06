@@ -1,1 +1,66 @@
-// learn c and c
+#include <iostream>
+#include <string>
+#include<algorithm>
+#include <vector>
+using namespace  std;
+
+void print (vector<int> &v){
+  for(int i=0;i<v.size();i++){
+    cout<< v[i]<< " ";
+  }
+  cout<< endl;
+}
+
+
+void printvectorofvector (vector<vector<int> > &v){
+  for(int i=0;i<v.size();i++){
+  vector<int>&temp = v[i];
+    int a = temp [0];
+    int b = temp[1];
+    cout<<a<<" "<<b<<endl;
+  }
+  cout<< endl;
+}
+
+// bool mycomp(int &a,int&b){
+//   //return a < b; // increasing order sorting
+//   return a > b;  // decreasing order sorting
+// }
+
+bool mycompfor1index(vector<int>&a , vector<int>&b){
+ // return a[0] < b[0]; // 0index sorting
+   return a[1] < b[1]; // 1 index sorting
+  //   return a[1] > b[1]; // 1index sorting && decresing order
+}
+
+
+int main() {
+  // vector<int> v={44,55,33,22,11,33};
+   // sort(v.begin(),v.end()); // incresing order me sort kar dega
+  // sort(v.begin(),v.end(), mycomp);
+  // print(v);
+
+  // vector of vector sorting
+  vector<vector<int> > v;
+  int n;
+  cout<< " Enter the size"<<endl;
+  cin>>n;
+  
+  for(int i=0;i<n;i++){
+    cout<< "Enter the value of a,b :"<< endl;
+    int a,b;
+    cin>> a >> b;
+    vector<int>temp;
+    temp.push_back(a);
+    temp.push_back(b);
+
+    v.push_back(temp);
+  }
+   cout<< "Here are the values :"<<endl;
+  printvectorofvector(v);
+   cout<<"Sorted by 1 index"<<endl;
+  sort(v.begin(),v.end()); // sorted by 0 index sorting
+  sort(v.begin(),v.end(),mycompfor1index);
+  printvectorofvector(v); 
+  return 0;
+}
