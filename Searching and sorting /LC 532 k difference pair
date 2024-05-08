@@ -29,7 +29,7 @@ public:
 };
 
 /// using binary search approach
-
+// tc : n(logn)
 class Solution {
 public:
 
