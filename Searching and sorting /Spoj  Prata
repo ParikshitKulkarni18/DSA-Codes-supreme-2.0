@@ -1,0 +1,71 @@
+#include <iostream>
+#include<vector>
+# include<algorithm>
+using namespace std;
+
+
+
+bool isPossibleSolu(vector<int> cooksRanks,int np,int mid){
+ int currP = 0; // initials cooked prata count
+  for(int i= 0;i < cooksRanks.size();i++){
+    int R = cooksRanks[i],j=1; // j helps to count time 1r+2*r+3*r 
+    int timeTaken = 0;
+
+    while(true){
+      if(timeTaken +j*R <= mid){
+        currP ++; // cooks prata
+        timeTaken += j*R; //time taked by cooks
+        ++j;
+        
+      }
+      else {
+        // time is greater than mid 
+        break;
+      }
+      
+    }
+    if (currP >= np){
+      return true;
+    }
+  }
+
+  return false;
+}
+int  minTimeToCompleteOrder(vector<int> &cooksRanks,int np){
+  int start = 0;
+  int highesrRank = *max_element(cooksRanks.begin(),cooksRanks.end());
+    int end = highesrRank*(np*(np+1)/2); // time require by highest rank cook i.e max time required
+   int ans =-1;
+
+  while(start<= end){
+    int mid = (start+end)/2;
+    if(isPossibleSolu(cooksRanks,np,mid)){
+       ans = mid;
+      end = mid -1;
+    }
+    else {
+      start = mid+1;
+    }
+  }
+  return ans;  
+  
+}
+
+
+int main() {
+int t; cin>>t;
+  while(t--){
+    int np,nc; // np: number of prata, nc: number of cooks
+    cin>>np>>nc;
+  vector <int>  cooksRanks;
+    while(nc--){
+      int R; cin>>R; // r is ranks of cooks
+       cooksRanks.push_back(R);
+            
+    }
+    cout<<minTimeToCompleteOrder(cooksRanks,np);
+  }
+
+
+  
+}
