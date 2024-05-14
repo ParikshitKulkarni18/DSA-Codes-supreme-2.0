@@ -2,179 +2,165 @@
 #include<string.h>
 using namespace std;
 
-int findLength(char ch[], int size) {
+ int   findlength(char ch[] ,int size){
+   // using while loop
+//     int length =0;
+     int i=0;
+     while(ch[i] != '\0'){
+  //       length ++;
+         i++;
+         
+         // can also do by skiping length
+         
+         
+         
+     
+     }
+    // return length;
+     return i++;
+     
+     // int length =0;
 
-  
-  int index = 0;
-  while(ch[index] != '\0') {
-    index++;
-  }
-  return index;
+     // for(int i=0;i<size;i++){
+     //     if(ch[i] =='\0' ){
+     //         // ruk jao
+     //         break;
+     //     }
+     //     else{
+     //         length++;
+     //     }
+     // }
+     // return length;
+ }
 
-    
-  // int length = 0;
+int reverseString (char ch[],int n){
+    int i=0;
+    int j = n-1;
 
-  // for(int i=0; i<size; i++) {
-  //  if(ch[i] == '\0') {
-  //    //ruk jao
-  //    break;
-  //  }
-  //  else {
-  //    length++;
-  //  }
-  // }
-
-  // return length;
-}
-
-void reverseString(char ch[] , int n) {
-  int i=0; 
-  int j = n-1;
-
-  while(i<=j) {
-    swap(ch[i], ch[j]);
-    i++;
-    j--;
-  }
-  
-}
-
-void convertToUpperCase(char ch[], int n) {
-
-  int index = 0;
-
-  while(ch[index] != '\0') {
-    
-    //check if lowercase, then convert to upper case
-    if(ch[index] >= 'a' && ch[index] <='z') {
-      ch[index] = ch[index] - 'a' + 'A';
+    while(i<=j){
+        swap(ch[i],ch[j]);
+            i++;
+            j--;
+        
     }
-    index++;
-  }
+    return 0; 
+    
 }
-
-void replaceCharacter(char ch[], int n) {
-  int index = 0;
-  
-  while(ch[index] != '\0') {
-    if(ch[index] == '@') {
-      //insert space
-      ch[index] = ' ';
+void ConvertoUppercase (char ch[],int n){
+    int index =0;
+    while(ch[index ]!= '\0'){
+        char currchar = ch[index];
+        // check if lower case conver to upper case
+        if(currchar >= 'a'&& currchar <='z'){
+            ch[index] = currchar -'a'+'A';
+        }
+        index++;
     }
-    index++;
-  }
 }
 
-bool checkPalindrome(char ch[], int n) {
-  //n -> length of string
-  int i=0; 
-  int j = n-1;
+void replacechar(char ch[],int n){
+ int i=0;
+   while(ch[i]!='\0'){
+     char curr = ch[i]; // current character
 
-  while( i<= j) {
-    if(ch[i] == ch[j]) {
-      i++;
-      j--;
+       if(curr == '@'){
+           //insert  space
+           ch[i] = ' ';
+       }
+       i++;
+   } 
+   
+
+}
+bool checkPalidrome (char ch [],int n){
+    int  i= 0;
+    int j = n-1;
+
+    while(i<=j){
+        if (ch[i]== ch[j]){
+            i++;
+            j--;
+        }
+        else {
+            // character are not matching
+            
+            return false;
+        }
+    }
+    // yaha pahocht jaye hoo  to sare cha char are matching
+    return true;
+}
+int main() {
+ // char ch[100];
+ //    cin>> ch; 
+ //   // cin.getline(ch,100);
+ // int length = findlength(ch,100);
+
+ //    cout<< " length of string is: "<< length<<endl;
+ //    cout<<"Printing lenght: "<<strlen(ch);
+    
+    
+    char ch[100];
+    cin.getline(ch,100);
+
+    // cout<< "Before :"<<ch<<endl;
+    // int length = findlength(ch,100);// we have to first find the length to reverse a string 
+    // reverseString(ch,length);
+    // cout<<"After :"<<ch<<endl;
+
+    // ConvertoUppercase(ch,100);
+    
+    // cout<< ch<<endl;
+  //replacechar(ch,100);
+    //cout<< ch<<endl;
+ int  length = findlength(ch,100);
+    
+bool isPalidrome =    checkPalidrome(ch,length);
+    if(isPalidrome ){
+        cout<<"valid palidrome"<<endl;
     }
     else {
-      //characters are not matching
-      return false;
+        cout<<"not a valid palidrome"<<endl;
     }
-  }
-  //agar yaha pohjoch gye ho
-  //iska matlab saare characters match kr gye h 
-  ///iska matlab palindrome hai 
-  //iska matlab return true krdo
-  return true;
-  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // creation 
+//char ch[100];
+
+    // input 
+    // cin>> ch;
+  //  cin.getline(ch,100);
+
+
+    
+    // printing 
+    //cout<< "printing  :" << ch << endl;
+   
+// printing using loop
+
+    // for (int i=0;i<10;i++){
+    //     cout <<"AT index : "<<i<<" "<< ch[i]<<endl;
+    // }
+// explict typecasting
+    // char temp = ch[6];
+    // int value = (int)temp;
+    // cout<<"Printing interger value: "<<value<<endl;
+    // can  take input same as array but it is easy to take direct input and print it 
+    // int arr[10];
+    // for (int i =0;i< 10;i++){
+    //     cin>>arr[i];
+    // }
+
+
+    
 }
-
-
-int main() {
-
-  // string name;
-
-  // cin >> name;
-
-  //empty string
-  //string temp = "";
-
-  // cout << "Length of string: "  << name.length() << endl;
-  // cout << "String is empty or not: " << temp.empty() << endl;
-  //cout <<"Character at position 0 is: " << name.at(0) << endl;
-
-  // cout << "Front character of string is: "<< name.front() << endl;
-  // cout << "back character of string is: "<< name.back() << endl;
-
-  // string str1 = "Love";
-  // string str2 = "Babbar";
-
-  // cout << "before appending" << endl;
-  // cout << str1 << endl;
-  // cout << str2 << endl;
-  
-  // //apend
-  // str1.append(str2);
-
-  // cout << "After appending" << endl;
-  // cout << str1 << endl;
-  // cout << str2 << endl;
-
-  // string desc = "This is a car";
-  // desc.erase(4, 3);
-  // cout << desc << endl;
-
-
-  // string name = "Love Babbar";
-  // string middle = "kumar ";
-
-  // name.insert(5, middle);
-
-  // cout << "Printing name:  " << name << endl;
-
-
-  // string name = "love" ;
-
-  // cout << name << endl;
-
-  // name.push_back('R');
-  // cout << name << endl;
-
-  // name.pop_back();
-  // cout << name << endl;
-
-
-  // string str1 = "yaar tera super star desi kalakar";
-  // string str2  = "staryyyy";
-
-
-  // if(str1.find(str2) == string::npos){
-  //  //not found
-  //  cout << "Not FOund" << endl;
-  // }
-  // else {
-  //  cout << "Found" << endl;
-  // }
-
-  // string str1 = "babbar";
-  // string str2 = "Love";
-
-  // if(str1.compare(str2) == 0) {
-  //  cout << "Matching" << endl;
-  // }
-  // else {
-  //  cout << "not matching " << endl;
-  // }
-
-
-  string desc = "this is a car, big daddy of all suvs";
-
-  cout << desc.substr(19, 5) << endl;
-  
-  
-
-
-
-
-
-
-a
