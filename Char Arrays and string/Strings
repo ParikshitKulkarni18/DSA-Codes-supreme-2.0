@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+
+
+
+
+int main() {
+// creation of string
+  // string  name;
+  // input
+ // cin>> name;
+ //  getline(cin,name);
+  // printing
+  //cout<<"printing: "<<name<<endl;;
+  //access
+ //cout<<name[0];
+// looping
+//   int index =0;
+
+//   while(name[index] != '\0'){
+//     cout<<"index: "<<index<<" "<<"character: "<<name[index]<<endl;
+//     index  ++;
+//   }
+
+// cout<<"Printing index 9"<<name[9]<<endl;
+// // ascii value
+//   int value = (int )name[9];
+//   cout<<"value: "<<value<<endl;
+
+
+// string name;
+//   cin>>name;
+//   // cout<<"Length of string :"<< name.length()<<endl;
+//   //  cout<<"string is empty  :"<< name.empty()<<endl;
+
+//  // cout<<"Character at 0 Position is: "<<name.at(0);
+//   cout<<"Front character of string: "<<name.front()<<endl;
+//   cout<<"back character of string: "<<name.back()<<endl;
+
+  // string str1 = "Parikshit";
+  // string str2 = "Kulkarni";
+
+  // cout<<"Before appending"<<endl;
+  // cout<<str1<<endl;
+  // cout<< str2<<endl;
+  
+ // // append
+ //    str1.append(str2);
+ //  cout<<"after appending"<<endl;
+ //  cout<<str1<<endl;
+ //  cout<< str2<<endl;
+
+  // string desc =" This is a car";
+  // desc.erase(4,3);
+  // cout<<desc<<endl;
+
+  // string name = "Parikshit Kulkarni";
+  // string middle  = " ji  ";
+
+  // name.insert(10,middle);
+  // cout<<"Printing the name: "<<name<<endl;
+    
+ //  string name = "Parikshit Kulkarni";
+ // cout<<name <<endl;
+ //  name.push_back('s');
+ //  cout<<name<<endl;
+ //  name.pop_back();
+ //  cout<<name<<endl;
+
+
+ //  string name = "Kaho na paar hee";
+ //  string name2 = "paarii samaj";
+ // /// using string:: for npos to know it is predefined in string class
+ //  if (name.find(name2) == string::npos){
+ //    // not found
+ //    cout<<"Not found"<<endl;
+    
+ //  }
+ //  else{
+ //    cout<<"Found"<<endl;
+ //  }
+
+ //  string str1 = "Parikshit";
+ // string str2  = "parikshit";
+
+ //  if(str1.compare(str2)==0){
+ //    cout<<"Both are same"<<endl;
+ //  }
+ //  else {
+ //    cout<<"Both are not same"<<endl;
+ //  }
+
+  string desc = "This is a car ,big daddy of all suvs";
+
+  cout<< desc.substr(19,5)<<endl;
+
+
+
+
+
+  
+}
