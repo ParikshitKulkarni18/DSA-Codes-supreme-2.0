@@ -1,0 +1,14 @@
+// lc  1047
+class Solution {
+public:
+    string removeOccurrences(string s, string part) {
+       
+
+      while(s.find(part) !=  string:: npos){
+         //if inside loop it means that  part exist in s wali string
+         s.erase(s.find(part),part.length());
+
+      }  
+       return s;
+    }
+};
