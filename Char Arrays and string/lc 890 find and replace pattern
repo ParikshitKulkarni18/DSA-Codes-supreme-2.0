@@ -1,4 +1,4 @@
-//lc  890
+// lc 890
 class Solution {
 public:
 //this function normalises all the words  and pattern in to a similar format
@@ -35,10 +35,14 @@ public:
         // by sending them to createmapping function;
 
         for(string s: words){
+            // normalise temp string
+            
             string tempstring = s;
-            // normalise 
+            //  firstly normalise the pattern
+            // making pattern in abc order
+            // purani value nahi hee so store it
             CreateMapping(tempstring);
-
+              // 
             if(tempstring == pattern){
                 //it means that "s" wali string is valid ans  so stor it
               ans.push_back(s);
