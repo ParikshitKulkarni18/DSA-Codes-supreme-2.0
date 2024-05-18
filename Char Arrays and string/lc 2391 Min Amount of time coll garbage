@@ -1,0 +1,57 @@
+// lc 2391
+class Solution {
+public:
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) {
+      int Pickg =0;
+      int Pickm = 0;
+      int Pickp =0;
+      
+      int travelP=0;
+      int travelG=0;
+      int travelM=0;
+ //  till last index ka travel time nikal na hee
+    int LastP =0;
+    int LastG =0;
+    int LastM =0;
+
+    //calculate Pick time and travel time
+
+    for(int i=0;i<garbage.size();i++){
+        string curr =garbage[i];
+         // is string ke har yek character par traverse kar na hee to know where is is m orpor g
+          
+          for(int j=0;j<curr.length();j++){
+            char ch = curr[j];
+           
+           if (ch =='P'){
+              Pickp ++;
+              LastP =i;
+           }
+           if (ch =='G'){
+              Pickg ++;
+              LastG =i;
+           }
+           if (ch == 'M'){
+             Pickm ++;
+             LastM =i;
+
+           }
+
+          }
+
+    }
+        // calculating travel time
+        for(int i=0; i<LastP;i++){
+            travelP += travel[i];
+        }
+         for(int i=0;i<LastM;i++){
+            travelM += travel[i];
+        }
+         for(int i=0;i<LastG;i++){
+            travelG += travel[i];
+        }
+        int ans  = (Pickp+travelP)+ (Pickg+travelG)+ (Pickm+travelM);
+           return ans;
+    }
+   
+};
