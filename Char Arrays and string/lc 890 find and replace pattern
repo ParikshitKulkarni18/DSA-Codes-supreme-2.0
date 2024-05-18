@@ -1,0 +1,49 @@
+//lc  890
+class Solution {
+public:
+//this function normalises all the words  and pattern in to a similar format
+// so that we can compare them and find solution
+   void CreateMapping(string  &str){
+    // find mapping
+    char start ='a';
+      //creating array and placing all with 0;
+    char mapping [3000] = {0};
+   for(auto ch : str){
+    if(mapping[ch] ==0 ){
+        mapping [ch] = start;
+        start++;
+      }  
+  }
+
+       // update the string
+       for(int i=0;i<str.length();i++){
+        char ch  =str[i];
+        str[i] = mapping[ch];
+
+     
+   }
+
+
+   } 
+    vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
+       vector<string>ans;
+        // firstly normalize the pattern 
+        // making pattern in abb order
+        CreateMapping(pattern);
+        
+        // saare words ko check karna hee if they are like abb pattern
+        // by sending them to createmapping function;
+
+        for(string s: words){
+            string tempstring = s;
+            // normalise 
+            CreateMapping(tempstring);
+
+            if(tempstring == pattern){
+                //it means that "s" wali string is valid ans  so stor it
+              ans.push_back(s);
+            }
+        }
+       return ans;
+    }
+};
