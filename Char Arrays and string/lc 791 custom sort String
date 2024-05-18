@@ -1,0 +1,26 @@
+// lc 791
+class Solution {
+public:
+
+// to know the order of string & we dont have ways to pass so we have created global 
+ static  string str ;
+// custom comparator
+    static bool compare(char char1, char char2){
+// this will return true if position of character 1 in str string is
+// less than the position of character 2 in str string
+
+// when true is return then char1 is placed before char2 in output string
+// 
+   return (str.find(char1) < str.find(char2));
+}
+  
+    string customSortString(string order, string s) {
+          str = order;
+           // use of custom comparator kar na hee i.e compare
+        sort(s.begin(),s.end(),compare);
+        return s;
+
+
+    }
+};
+string Solution ::str;
