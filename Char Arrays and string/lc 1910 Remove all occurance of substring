@@ -1,0 +1,41 @@
+// lc 1910
+class Solution {
+public:
+    string removeOccurrences(string s, string part) {
+       
+
+      while(s.find(part) !=  string:: npos){
+         //if inside loop it means that  part exist in s wali string
+         s.erase(s.find(part),part.length());
+
+      }  
+       return s;
+    }
+};
+
+
+
+
+
+// alternate method
+class Solution {
+public:
+    string removeOccurrences(string s, string part) {
+    
+    while(1){
+        int found  = s.find(part);
+        if(found == string :: npos){
+            break;
+        }
+        // remove kar na hee
+        string LP = s.substr(0,found);
+         string RP = s.substr(found+ part.size(),s.size());
+      // add or concanate both string
+
+      s = LP+RP;
+    
+    }
+    return s;
+    
+    }
+};
