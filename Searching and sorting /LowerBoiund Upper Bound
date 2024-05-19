@@ -1,0 +1,19 @@
+#include <iostream>
+# include<vector>
+# include<algorithm>
+using namespace std;
+
+int main() {
+vector<int> v ={1,1,2,2,2,2,3,4};
+
+  auto it= lower_bound(v.begin(),v.end(),2);
+  cout<<*it<<endl;
+  cout<<"Index it  :"<<it-v.begin()<<endl;
+// * return memeory address
+  auto it2= upper_bound(v.begin(),v.end(),2);
+   cout<<*it2<<endl;
+  cout<<"Index it2 :"<<it2-v.begin()<<endl;
+
+
+  return 0;
+}
