@@ -1,14 +1,26 @@
 // lc  1047
 class Solution {
 public:
-    string removeOccurrences(string s, string part) {
-       
+    string removeDuplicates(string s) {
+          string ans = "";
+      int index =0;
+      while(index <  s.length()){
+        //same wala kase 
+        //ans ka right most  char and string s ka current character
+         if(  ans.length()> 0 && ans[ans.length()-1]== s[index]){
+             // pop karo ans see
+             
+             ans.pop_back();
+         }
+         else {
+            // push
+            ans.push_back(s[index]);
+         }
+         index ++;
 
-      while(s.find(part) !=  string:: npos){
-         //if inside loop it means that  part exist in s wali string
-         s.erase(s.find(part),part.length());
+      }
+      return ans;
 
-      }  
-       return s;
+
     }
 };
