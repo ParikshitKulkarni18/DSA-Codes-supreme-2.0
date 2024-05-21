@@ -13,7 +13,8 @@ public:
         for(auto  str: strs){
             if(i>= str.size()){
                 // out of bound wali condition hee
-                curr_char =0; // for loop se bhar ke baad while loop se nikale ne ko bhi
+              // helps for line 31 to break
+               curr_char =0; // for loop se bhar ke baad while loop se nikale ne ko bhi
                 // yek tarika chaiye soo.
                 break;
             }
@@ -24,7 +25,7 @@ public:
            } 
            // baki ke string se hum compare kar rahe hee.
            else if (str[i] != curr_char){
-            curr_char =0; // 
+           curr_char =0; // 
             break;
            }
             
