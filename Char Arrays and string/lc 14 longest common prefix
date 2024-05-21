@@ -1,0 +1,44 @@
+// lc 14
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string ans;
+       int i=0; //use to iterate all string ith character 
+    // infine loop
+    while(true){
+        char curr_char = 0;
+        // we are iterating  the char inside the string strs 
+        //str is used to itrate each index string
+        for(auto  str: strs){
+            if(i>= str.size()){
+                // out of bound wali condition hee
+                curr_char =0; // for loop se bhar ke baad while loop se nikale ne ko bhi
+                // yek tarika chaiye soo.
+                break;
+            }
+           
+           // just started to iterate on 0 index of each string in strs
+           if(curr_char == 0){
+            curr_char = str[i]; // initialize current character // f aagaua
+           } 
+           // baki ke string se hum compare kar rahe hee.
+           else if (str[i] != curr_char){
+            curr_char =0; // 
+            break;
+           }
+            
+        }
+        // some character are not same so break kar do
+         if(curr_char == 0){
+            break;
+         }
+         //ith character of all the string are same to we have to store in ans
+         // so we are doing push_back
+         ans.push_back(curr_char);
+         i++;
+    }
+     return ans;
+    }
+
+};
