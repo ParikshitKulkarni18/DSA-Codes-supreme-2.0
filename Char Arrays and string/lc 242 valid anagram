@@ -1,0 +1,34 @@
+// lc 242
+
+class Solution {
+public:
+
+    bool isAnagram(string s, string t) {
+   int frequencyTable[256] = {0};
+   for(int i=0;i<s.size();i++){
+      
+      //s[i]is the character of s string or anagram and automatically
+      //typecast it 
+      // creating freq table 
+      frequencyTable[s[i]]++;
+
+     }  // tc O(n)
+
+     for(int i=0;i<t.size();i++){
+        // deleting char from freq table 
+        // by comparing t with freq table of s
+         frequencyTable[t[i]]--;
+     }  // tc O(m)size of t
+     for(int i=0;i<256;i++){
+        //comparing if freq table is 0
+        if(frequencyTable[i] !=0){
+            return false;
+        } // tc O(256) ==O(1)
+     }
+
+         return true;
+
+
+    }
+};
+ //total = O(m+n)/ TC 
