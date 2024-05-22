@@ -1,0 +1,33 @@
+// lc 205
+
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+    // mapping of each character of language 's' to language 't'
+          int hash[256]={0};
+          // storing if t[i]char is already mapped with s[i]; 
+        bool isTcharMapped[256]={0};
+       
+
+       for(int i=0; i<s.size();i++){
+        // checking whether the hashing of s[i] =0 if yes  then making it
+        // with t[i]. and alsochecking that isTcharMapped should not mapped
+        if(hash[s[i]] == 0 && isTcharMapped[t[i]] == 0 ){
+              // a->e
+              hash[s[i]] = t[i];
+              // e is mapped
+              isTcharMapped[t[i]] = true;
+             
+        }
+
+       }
+       for(int i=0;i<s.size();i++){
+        // convert s[i] in char as t[i] gives char
+        // as s[i] gives int soo. 
+        if(char(hash[s[i]]) != t[i]) {
+            return false;
+         }
+       }
+        return true;
+    }
+};
