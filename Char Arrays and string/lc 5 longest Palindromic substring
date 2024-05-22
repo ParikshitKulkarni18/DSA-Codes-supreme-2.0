@@ -1,4 +1,4 @@
-//5
+// lc 5
 
 class Solution {
 public:
@@ -12,14 +12,17 @@ public:
     }
     return true;
  }
-
+      
     string longestPalindrome(string s) {
         string ans="";
 
         for(int i=0;i<s.size();i++){
+            //   taking out all substring
             for(int j=i;j<s.size();j++){
                 if(isPalindrome(s,i,j)){
+                    // stl function we have to give start and length
                      string t = s.substr(i,j-i+1);
+                     // for finding larget substr ? keep as t or ans 
                      ans = t.size() > ans.size() ? t : ans;
                 }
             }
