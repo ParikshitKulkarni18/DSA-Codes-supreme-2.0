@@ -1,0 +1,48 @@
+// lc 8
+
+//class Solution {
+//public:
+  //  int myAtoi(string s) {
+// s.c_str()  is a stl function used for converting to char string 
+    //    int integer = atoi(s.c_str());
+      //  return integer;
+    //}
+//};
+
+//alternative solution
+
+class Solution {
+public:
+    int myAtoi(string s) {
+        // // s.c_str() is a stl function which is used to convert into character string
+        // int integer = atoi(s.c_str());
+        // return integer;
+      int num =0,i =0, sign =1; // +ve
+// ignore white space ka code
+      while(s[i] == ' '){
+        i++;
+      }
+
+      // determine sign code check
+      if(i< s.size() &&  (s[i] =='-'|| s[i]=='+') ){
+        sign = s[i] =='+' ? 1 : -1;
+        i++;
+      }
+      // checking is intger are present 
+      // also ignore character
+      // isdigit shows that isdigit gives whether it is intger
+      while (i<s.size()  && isdigit(s[i])){
+        // it should be less than int max or equal to int max then also
+        //it becomes out of bound 
+         if(num> INT_MAX/10 || (num == INT_MAX /10 && s[i]> '7')){
+            return  sign ==-1 ?  INT_MIN :INT_MAX; 
+         }
+         num = num*10 + (s[i] -'0');
+        i++;
+      }
+      // if digit is not present return 0 or num
+      // * sign because we can get - 1 so to get that we have multipled 
+      return num * sign;
+         
+    }
+};
