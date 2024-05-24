@@ -1,0 +1,9 @@
+// lc 8
+
+class Solution {
+public:
+    int myAtoi(string s) {
+        int integer = atoi(s.c_str());
+        return integer;
+    }
+};
