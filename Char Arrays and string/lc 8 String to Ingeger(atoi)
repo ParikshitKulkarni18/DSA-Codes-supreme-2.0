@@ -3,6 +3,7 @@
 class Solution {
 public:
     int myAtoi(string s) {
+// s.c_str()  is a stl function used for converting to char string 
         int integer = atoi(s.c_str());
         return integer;
     }
