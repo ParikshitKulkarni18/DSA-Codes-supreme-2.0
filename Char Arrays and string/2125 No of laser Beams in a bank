@@ -1,5 +1,6 @@
 // 2125
 
+
 class Solution {
 public:
     int countDevices(string&binary){
@@ -7,6 +8,8 @@ public:
         int c=0;
         for(auto b:binary)
             //calculating all count
+            //calculate no of once
+            // deleting character 0-char = 0
             c += b -'0';
         return c;
     }
