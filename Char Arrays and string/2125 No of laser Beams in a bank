@@ -1,4 +1,42 @@
 // 2125
 
-// revise concept
-// hello ji
+class Solution {
+public:
+    int countDevices(string&binary){
+        // count 
+        int c=0;
+        for(auto b:binary)
+            //calculating all count
+            c += b -'0';
+        return c;
+    }
+
+    int numberOfBeams(vector<string>& bank) {
+        vector<int>devices;
+        for(auto row:bank){
+            // counting the devices
+             devices.push_back(countDevices(row));
+        }
+        // number of beams
+        int beams =0;
+        //
+        for(int i=0;i<devices.size();++i){
+            int j= i + 1;
+            while(j<devices.size()){
+            //hame ruk jane hee if becch me yek security device mila to
+            // number of beams
+                beams  += devices[i]*devices[j]; 
+                  if(devices[j] == 0){
+                // beams 0 to aage badna hee
+                       j++;
+                  }
+                  else {
+                     break;
+                  }
+            }
+         
+        }
+       return beams;
+    }
+   
+};
