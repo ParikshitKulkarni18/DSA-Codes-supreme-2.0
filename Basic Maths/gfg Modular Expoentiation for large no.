@@ -1,0 +1,14 @@
+	public:
+		long long int PowMod(long long int x,long long int n,long long int M)
+		{
+		    long long int ans =1;
+		    while(n>0){
+		        if(n&1){
+		            ans = (ans *x)% M; //% m making mode to keep it in range
+		        }
+		        x = (x * x)%M;
+		        n >>=1; // making n/2
+		    }
+		    return ans % M;
+		    
+		}
