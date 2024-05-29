@@ -1,6 +1,5 @@
 // optimising seive and segmented seive
 
-
 #include <iostream>
 # include<vector>
 using namespace std;
@@ -9,11 +8,16 @@ vector<bool>Sieve(int n){
   // create seive array of n size telling is prime
    vector<bool> seiveprime(n+1,true); // sabko pahile true mark kar dete hee
   seiveprime[0]=seiveprime[1] = false; // mark false
-
-  for(int i=2;i<=n;i++){
+// optimizaton 2 : outer loop ko root n tak jao  
+  // root n ko i*i lik sakte
+  for(int i=2;i*i<=n;i++){
     if(seiveprime[i]== true){
       // multiple nikalo
-      int j= i*2;
+     // int j= i*2;
+      int j = i*i; //optimization 1:
+      //first unmarked number would be i*i , as other have
+      //been marked by 2 insex se like to (i-1) taak table ke like 
+      //5*2,5*3,5*4 taak already marked hai so start from 5*5 see
        while(j<=n){
          seiveprime[j] = false;
           j+=i;
