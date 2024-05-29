@@ -1,7 +1,10 @@
 // optimising seive and segmented seive
 
+
 #include <iostream>
 # include<vector>
+# include<cmath>
+# include<algorithm>
 using namespace std;
 // return sieve
 vector<bool>Sieve(int n){
@@ -26,16 +29,68 @@ vector<bool>Sieve(int n){
   }
     return seiveprime; 
 }
+
+vector<bool>segSieve(int L,int R){
+  // get the prime array ,i will use it to mark seg sieve
+// to get the prime  number from array
+  vector<bool>seive=Sieve(sqrt(R));
+
+  vector<int>basePrimes; // use to mark prime
+  for(int i=0;i<seive.size();i++){
+    if(seive[i]){
+      //agar prime hoga to add kar do
+       basePrimes.push_back(i);
+    }  
+  }
+    vector<bool>segSieve(R-L+1,true);
+  if(L==1 ||L==0){
+    segSieve[L]=false;
+    
+    
+  }
+  // starting to take out prime
+  for(auto prime: basePrimes){
+    int first_multiple = (L/prime)*prime;
+    if(first_multiple<L){
+      first_multiple += prime;
+    }
+    // doing marking for the segmented sieve 
+  // from first sieve see j ka inner loop line 16 se
+    int j = max(first_multiple,prime*prime);
+    while(j<=R){
+      //mapping the index by deleting the low from j 
+      // like  0->110, 1->111 like that
+      segSieve[j-L]= false;
+   // exactly the same loop written in first sieve approach line 17 to 21
+      j += prime;
+    }
+  
+  }
+   return segSieve;
+}
+
+
+
+
 int main(){
-    vector<bool> seiveprime = Sieve(25);
-     for(int i=0;i<=25;i++){
-       if(seiveprime[i]){
-             cout<<i<<" "<<"is prime"<<endl;
-       }
-     }
+    // vector<bool> seiveprime = Sieve(25);
+    //  for(int i=0;i<=25;i++){
+    //    if(seiveprime[i]){
+    //          cout<<i<<" "<<"is prime"<<endl;
+    //    }
+    //  }
 
+  int L = 110;
+  int R = 130;
 
+  vector<bool> ss = segSieve(L,R);
 
+  for(int i=0;i<ss.size();i++){
+      if(ss[i]){
+        cout<<i+L<<" "<<"is prime"<<endl;  
+      }
+  }
+return 0;
 
   
 }
