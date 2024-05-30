@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+
+
+int main() {
+ // int a=5;
+ //  cout<<a<<endl;
+
+ //  cout <<"address of a: "<<&a;
+
+ //  // crating the pointer
+ //  int* ptr = &a;
+ //  //accesing value stored at address stored in ptr
+ //  cout<< "Accessing:"<<" "<<*ptr<<endl;
+
+ //  //ptr value dabe me kay pada tha
+ //   cout<< "Accessing:"<<" "<<ptr<<endl;
+ //  // ptr vale dabe ka address
+
+ //  cout<< "Accessing:"<<" "<<&ptr<<endl;
+// chal jayega will give garbage value
+  // int a=5;
+  // int* p = &a;
+  //  p= p+1;
+  // cout<<*p<<endl;
+
+   char ch = 'a';
+  char* cptr = &ch;
+
+  cout<< cptr;
+  
+
+
+  
+}
