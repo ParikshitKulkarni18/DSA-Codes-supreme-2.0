@@ -1,1 +1,43 @@
-// pointer
+// pointer with function
+
+#include <iostream>
+using namespace std;
+
+void solve(int *arr,int size){
+
+  // cout<< "size of array inside function: "<< sizeof(arr) << endl;
+
+  cout<<"Inside solve func ->arr: "<<arr<< endl;
+
+  cout<<"Inside solve func ->arr: "<<&arr<< endl;
+
+  
+}
+
+
+
+int main() {
+ 
+// int arr[5] = {1,2,3,4,5};
+// //pointer to an array show base address
+  
+//   //int *ptr2 = arr;
+//   //5 array ke array par Pointer laga diya 
+//   int (*ptr)[5] = &arr;
+//  cout<<(*ptr)[1];
+
+  
+ // char ch[10] = "PArikshit";
+ //  char*  cptr = &ch;
+
+int arr[] = {10,20,30,40,50};
+// cout<< "size of array is:  "<<sizeof(arr) <<endl;
+
+  
+  solve(arr,5);
+
+  cout<<"Inside main ->arr: "<<arr<< endl;
+
+  cout<<"Inside main ->arr: "<<&arr<< endl;
+   return 0;
+}
