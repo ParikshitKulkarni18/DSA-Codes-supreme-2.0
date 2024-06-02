@@ -7,13 +7,22 @@ void solve(int *arr,int size){
 
   // cout<< "size of array inside function: "<< sizeof(arr) << endl;
 
-  cout<<"Inside solve func ->arr: "<<arr<< endl;
+  // cout<<"Inside solve func ->arr: "<<arr<< endl;
 
-  cout<<"Inside solve func ->arr: "<<&arr<< endl;
+  // cout<<"Inside solve func ->arr: "<<&arr<< endl;
 
+  *arr = *arr+1;
   
 }
-
+// pass  by value kiya hee;
+void solve1(int *p){
+  p = p+1;
+}
+// pass by reference kiya hee;
+// so changes to main and value changes
+void solve2(int *&p){
+  p = p+1;
+}
 
 
 int main() {
@@ -30,14 +39,29 @@ int main() {
  // char ch[10] = "PArikshit";
  //  char*  cptr = &ch;
 
-int arr[] = {10,20,30,40,50};
-// cout<< "size of array is:  "<<sizeof(arr) <<endl;
+// int arr[] = {10,20,30};
+// // cout<< "size of array is:  "<<sizeof(arr) <<endl;
 
   
-  solve(arr,5);
+//   solve(arr,3);
 
-  cout<<"Inside main ->arr: "<<arr<< endl;
+//   // cout<<"Inside main ->arr: "<<arr<< endl;
 
-  cout<<"Inside main ->arr: "<<&arr<< endl;
+//   // cout<<"Inside main ->arr: "<<&arr<< endl;
+//   for(int i=0;i<3;i++){
+//     cout<< arr[i]<<" ";
+//   }
+
+  int a =5;
+  int *p = &a;
+
+  cout<< "p : "<<p << endl;
+  cout<<"&p: "<<&p<< endl;
+  cout<<"*p: "<<*p<< endl;
+ // solve1(p);
+  solve2(p);
+  cout<< "p : "<<p << endl;
+  cout<<"&p: "<<&p<< endl;
+  cout<<"*p: "<<*p<< endl;
    return 0;
 }
