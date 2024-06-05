@@ -1,0 +1,54 @@
+
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+  // base case
+  if (n == 1)
+    return 1;
+  if (n == 0)
+    return 1;
+
+  // recursive relation
+  // int ans =  n *factorial(n-1);
+
+  // return ans;
+  // or alternative soln
+  int recursionKaAns = factorial(n - 1);
+  // processing
+  int finalAns = n * recursionKaAns;
+  return finalAns;
+}
+void reverseCount(int n) {
+  // base case
+  if (n == 1) {
+    cout << 1 << " ";
+    return;
+  }
+  // processing
+  cout << n << " ";
+  //  recursive call
+  reverseCount(n - 1);
+
+  //  so in recursion order matter a lot
+}
+void forwardCount(int n) {
+  if (n == 1) {
+    cout << 1 << " ";
+    return;
+  }
+
+  //  recursive call
+  reverseCount(n - 1);
+  // processing
+  cout << n << " ";
+}
+
+int main() {
+
+  // cout<<factorial(5)<<endl;
+
+  reverseCount(50);
+
+  return 0;
+}
