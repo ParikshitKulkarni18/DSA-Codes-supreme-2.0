@@ -1,0 +1,40 @@
+class Solution {
+public:
+
+    int climbStairs(int n) {
+    //    // base case 
+    //    //
+    //    if(n==0){
+    //      return 1;
+    //    }
+    //    //as n-2 ke liye -ve jayega so..
+    //    if (n==1){
+    //     return 1;
+    //    }
+    //    int ans =  climbStairs(n-1) + climbStairs(n-2);
+    //    return ans;
+
+    // Alternative solution
+      // base case 
+       //
+       if(n==1){
+         return 1;
+       }
+      
+       if (n==2){
+        return 2;
+       }
+       int ans =  climbStairs(n-1) + climbStairs(n-2);
+       return ans;
+       
+
+       // fibonachhi series using for loop
+    //    int prev1 =0;
+    //    int prev2 = 1;
+    //    for (int i=1;i<n;i++){
+    //          ans =  prev1 + prev2;
+    //          prev1 = prev2;
+    //          prev2 = ans;
+    //    }
+    }
+};
