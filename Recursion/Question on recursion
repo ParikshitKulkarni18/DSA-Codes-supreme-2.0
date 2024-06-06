@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+#include<limits.h>
+
+void printArray(int arr[],int size,int index){
+// base case
+  if (index >= size){
+    return ;
+  }
+  // processing 
+  // jis index par khada hoo use print karo
+  cout<<arr[index]<<endl;
+// recursive call karo
+  printArray(arr,size,index+1);
+
+
+  // if we want to print in reverse order
+  //   cout<<arr[index]<<endl;
+  
+}
+
+bool  SearchArray(int arr[],int size,int target ,int index){
+// base case
+  if(index >= size){
+    return false;
+  }
+  // if current element is target 
+if(arr[index] == target){
+  return true;
+}
+
+  // recursive call
+  bool finalAns = SearchArray(arr,size,target,index+1);
+  return finalAns;
+}
+// mini pass kiya taki usme store kar pao ans ko
+// herer we have to pass mini by reference as so that we do not create copy and store directly in it.
+void findMin(int arr[],int size,int index,int &mini){
+  // base case
+  if (index >= size){
+    return;
+  }
+
+  // processing
+  mini = min(mini,arr[index]);
+
+  // recursive call
+  findMin(arr,size,index+1,mini);
+}
+
+int main() {
+ 
+int arr[]={10,20,30,40,50};
+  int size=5;
+  int index =0;
+  int mini = INT_MAX;
+  //printArray(arr,size,index);
+//int target = 50;
+  //cout<<"Target Found or not: "<< SearchArray(arr,size,target,index)<<" "<<endl;
+ findMin(arr,size,index,mini);
+  cout<<"Minimum number is: "<<mini<<endl;
+  return 0;
+  
+}
