@@ -1,0 +1,177 @@
+// level 2
+#include <iostream>
+# include<vector>
+using namespace std;
+
+bool checkArray (int arr[],int size,int index){
+  // base case
+  // hum traverse kee baad punch hoge
+  if (index >= size){
+    return true;
+    // array sorted hee
+  }
+
+  // processing
+  if (arr[index]> arr[index-1]){
+   // aage check kar na padega
+    // ab recursion sabalega
+    // recursive call
+     bool aageKaAns = checkArray(arr,size,index+1);
+      return aageKaAns;
+  }
+  else {
+    // sorted nahi hee
+    return false;
+  }
+ 
+}
+int binSearch(int arr[],int start,int end,int target){
+int mid = (start+end)/2;
+  // base case
+ if (start > end ){
+ // element not found
+   return -1;
+ }
+  // processing  -> 1 case solve karo
+  if(arr[mid] == target ){
+    return mid;
+  }
+ //baki recursion sambhal lega
+  
+  if (arr[mid] < target){
+    // right me search karo
+    
+    return binSearch (arr,mid +1,end,target);
+    
+  }
+  else {
+    // left me search karo
+    
+    return binSearch (arr,start,mid -1,target);
+  
+  }
+  mid = (start+end)/2;
+
+  return -1;
+}
+
+void FindSubSequences(string str,string output,int index){
+// base case
+  if (index >= str.length() ){
+    // answer jo he vo output string me ban chuka hee
+    //print karo
+    cout<<"->"<<output<<endl;
+    return; 
+  }
+char ch = str[index];
+// now first include and then exclude
+// include
+  output.push_back(ch);
+  FindSubSequences(str,output,index+1);
+
+  // exclude
+  // deleting the included charcter
+  output.pop_back();
+   FindSubSequences(str,output,index+1);
+
+  
+
+
+
+  // first exclude and then include
+   // exclude char
+  FindSubSequences(str,output,index+1);
+  
+  
+  
+  //include char 
+// including the current character
+  //output string me ch character ko dalo
+  output.push_back(ch);
+  FindSubSequences(str,output,index+1);
+  
+
+  
+}
+// by storing in vector
+void FindSubSequences1(string str,string output,int index,vector<string>& ans){
+// base case
+  if (index >= str.length() ){
+    // answer jo he vo output string me ban chuka hee
+    //print karo
+    //cout<<"->"<<output<<endl;
+    ans.push_back(output);
+    return; 
+  }
+char ch = str[index];
+// now first include and then exclude
+// include
+  output.push_back(ch);
+  FindSubSequences1(str,output,index+1,ans);
+
+  // exclude
+  // deleting the included charcter
+  output.pop_back();
+   FindSubSequences1(str,output,index+1,ans);
+
+
+
+
+
+//   // first exclude and then include
+//    // exclude char
+//   FindSubSequences(str,output,index+1);
+
+
+
+//   //include char 
+// // including the current character
+//   //output string me ch character ko dalo
+//   output.push_back(ch);
+//   FindSubSequences(str,output,index+1);
+
+
+
+}
+
+
+
+int main() {
+// int arr[]={10,20,30,40,50,60,70,80};
+//   int size = 8;
+//   //int index = 1;
+// int start = 0;
+//   int end = size -1;
+//   int target = 60;
+
+// bool isSorted = checkArray(arr,size,index);
+
+//   if (isSorted){
+//     cout<<"Array is sorted"<<endl;
+//   }
+//   else{
+//     cout<<"Array is not sorted"<<endl;
+//   }
+// int foundIndex = binSearch(arr,start,end,target);
+//   if (foundIndex != -1){
+//     cout<<"Element found at index :  "<<foundIndex<<endl;
+//   }
+//   else{
+//     cout<<"Element not found "<<endl;
+//   }
+
+vector<string> ans;
+string str = "abc";
+int index = 0;
+  string output = "";
+//  FindSubSequences(str,output,index);
+
+  FindSubSequences1(str,output,index,ans);
+
+  cout<<"Printing the Sequences"<<endl;
+
+  for(string s: ans){
+    cout<< "->"<<s<<endl;
+  }
+  return 0;
+}
