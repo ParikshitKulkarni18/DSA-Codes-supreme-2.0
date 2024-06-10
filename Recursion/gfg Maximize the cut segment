@@ -1,1 +1,48 @@
-// gfg
+// TLE marega as dp ke Q hee best solution is DP
+
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+// } Driver Code Ends
+class Solution
+{
+    public:
+    //Function to find the maximum number of cuts.
+    int maximizeTheCuts(int n, int x, int y, int z)
+    {
+        
+        //base case 
+        //if length hee 0 hoga to cut nahi kar payege
+        if(n==0){
+            return 0;
+        }
+        //when less than 0 aaye to wo max me consider hee nahi hoo
+        if (n<0){
+            return INT_MIN;
+        }
+        // maine x length ka yek segment cut kiya baki recursion dhek lega 
+         int option1 = 1+ maximizeTheCuts(n-x,x,y,z);
+         
+         
+        // maine y length ka yek segment cut kiya baki recursion dhek lega 
+         int option2 = 1+ maximizeTheCuts(n-y,x,y,z);
+         
+         
+        // maine z length ka yek segment cut kiya baki recursion dhek lega 
+         int option3 = 1+ maximizeTheCuts(n-z,x,y,z);
+         
+     
+        int finalAns = max(option1,max(option2,option3));
+        
+        return finalAns;
+         
+    }
+};
+
+     
+	return 0;
+}
+// } Driver Code Ends
