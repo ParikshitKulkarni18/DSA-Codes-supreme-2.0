@@ -1,0 +1,52 @@
+// lc 322
+// TLE marega  as best ans is dp
+
+class Solution {
+public:
+
+  int solve(vector<int>& coins, int amount){
+     // base case 
+      // 0 rs chaiye
+       if(amount == 0){
+        return 0;
+       }
+       int mini = INT_MAX;
+       int ans = INT_MAX;
+       // sare ke sare coin use karne hee so doing looping
+       for(int i=0;i<coins.size();i++){
+            // curent coin ke baat horahe hee
+            int coin = coins[i];
+
+            // current coin ko sirf tabhi use karenge 
+            // jab uski value less than or equal to amount hogi
+
+           if (coin <= amount){
+            
+            int recAns = solve(coins,amount-coin);
+            // corner case
+            // as recAns can return int max ans so
+        
+            if (recAns != INT_MAX)
+                    ans = 1 + recAns; 
+
+           }
+            mini = min(mini,ans);
+       }
+       return mini;
+  }
+
+  
+    int coinChange(vector<int>& coins, int amount) {
+     
+ int ans = solve(coins,amount);
+
+ if (ans == INT_MAX){
+    return -1;
+ }
+ else{
+    return ans;
+ }
+            
+        
+    }
+};
