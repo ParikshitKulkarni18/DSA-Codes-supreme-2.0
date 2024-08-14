@@ -9,7 +9,7 @@ void solve(int *arr,int size){
 
   // cout<<"Inside solve func ->arr: "<<arr<< endl;
 
-  // cout<<"Inside solve func ->arr: "<<&arr<< endl;
+  // cout<<"Inside solve func ->arr: "<<&arr<< endl ;
 
   *arr = *arr+1;
   
