@@ -9,7 +9,8 @@ public:
         //ans ka right most  char and string s ka current character
          if(  ans.length()> 0 && ans[ans.length()-1]== s[index]){
              // pop karo ans see
-             
+
+
              ans.pop_back();
          }
          else {
